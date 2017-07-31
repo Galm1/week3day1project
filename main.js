@@ -104,12 +104,13 @@ for (var i = 0; i < formData.length; i++) {
   formHTML.appendChild(input);
   input.setAttribute('type', formData[i].type)
   input.setAttribute('id', formData[i].id)
-  input.setAttribute('placeholder', formData[i].placeholder)
-  input.setAttribute('type', formData[i].type)
+  input.setAttribute('placeholder', formData[i].label)
+  // input.setAttribute('type', formData[i].type)
 }
 
-// let select = document.querySelector('')
-// let options = formData[4].options;
-// for (var i = 0; i < options.length; i++) {
-//
-//   }
+let select = document.querySelector('')
+let options = formData[4].options;
+for (var i = 0; i < options.length; i++) {
+  input.setAttribute('label', options[i].label)
+  input.setAttribute('select', opions[i].label)
+  }
