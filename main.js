@@ -99,18 +99,35 @@ let formData = [
 let formHTML = document.getElementById('fields');
 
 
-for (var i = 0; i < formData.length; i++) {
-  let input = document.createElement('input');
-  formHTML.appendChild(input);
-  input.setAttribute('type', formData[i].type)
-  input.setAttribute('id', formData[i].id)
-  input.setAttribute('placeholder', formData[i].label)
-  // input.setAttribute('type', formData[i].type)
+for (let i = 0; i < formData.length; i++) {
+if (formData[i].type === 'select') {
+  let select = document.createElement('select');
+  let ourOptions = formData[i].options;
+  let yourMom = document.createElement('option');
+  yourMom.setAttribute('label', 'Select Language...');
+  select.appendChild(yourMom)
+  for (let n = 0; n < ourOptions.length; n++) {
+    let newOption = document.createElement('option');
+    newOption.setAttribute('label', ourOptions[n].label)
+    newOption.setAttribute('value', ourOptions[n].value)
+    select.appendChild(newOption);
+  }
+  formHTML.appendChild(select);
 }
 
-let select = document.querySelector('')
-let options = formData[4].options;
-for (var i = 0; i < options.length; i++) {
-  input.setAttribute('label', options[i].label)
-  input.setAttribute('select', opions[i].label)
+else if (formData[i].type === 'textarea') {
+  let textbox = document.createElement('textarea')
+  textbox.setAttribute('label', formData[i].lable)
+  textbox.setAttribute('id', formData[i].id)
+
+
+}
+else {
+  let input = document.createElement('input');
+    formHTML.appendChild(input);
+    input.setAttribute('type', formData[i].type)
+    input.setAttribute('id', formData[i].id)
+    input.setAttribute('placeholder', formData[i].label)
+    // input.setAttribute('type', formData[i].type)
   }
+}
