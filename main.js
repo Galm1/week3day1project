@@ -100,34 +100,31 @@ let formHTML = document.getElementById('fields');
 
 
 for (let i = 0; i < formData.length; i++) {
-if (formData[i].type === 'select') {
-  let select = document.createElement('select');
-  let ourOptions = formData[i].options;
-  let yourMom = document.createElement('option');
-  yourMom.setAttribute('label', 'Select Language...');
-  select.appendChild(yourMom)
-  for (let n = 0; n < ourOptions.length; n++) {
-    let newOption = document.createElement('option');
-    newOption.setAttribute('label', ourOptions[n].label)
-    newOption.setAttribute('value', ourOptions[n].value)
-    select.appendChild(newOption);
-  }
-  formHTML.appendChild(select);
-}
-
-else if (formData[i].type === 'textarea') {
-  let textbox = document.createElement('textarea')
-  textbox.setAttribute('label', formData[i].lable)
-  textbox.setAttribute('id', formData[i].id)
-
-
-}
-else {
-  let input = document.createElement('input');
+  if (formData[i].type === 'select') {
+    let select = document.createElement('select');
+    let ourOptions = formData[i].options;
+    let yourMom = document.createElement('option');
+    yourMom.setAttribute('label', 'Select Language...');
+    select.appendChild(yourMom);
+    for (let n = 0; n < ourOptions.length; n++) {
+      let newOption = document.createElement('option');
+      newOption.setAttribute('label', ourOptions[n].label);
+      newOption.setAttribute('value', ourOptions[n].value);
+      select.appendChild(newOption);
+    }
+    formHTML.appendChild(select);
+  } else if (formData[i].type === 'textarea') {
+    let textBox = document.createElement('textarea');
+    textBox.setAttribute('type', formData[i].type);
+    textBox.setAttribute('label', formData[i].label);
+    textBox.setAttribute('id', formData[i].id);
+    textBox.setAttribute('placeholder', formData[i].label);
+    formHTML.appendChild(textBox);
+  } else {
+    let input = document.createElement('input');
     formHTML.appendChild(input);
-    input.setAttribute('type', formData[i].type)
-    input.setAttribute('id', formData[i].id)
-    input.setAttribute('placeholder', formData[i].label)
-    // input.setAttribute('type', formData[i].type)
+    input.setAttribute('type', formData[i].type);
+    input.setAttribute('id', formData[i].id);
+    input.setAttribute('placeholder', formData[i].label);
   }
 }
